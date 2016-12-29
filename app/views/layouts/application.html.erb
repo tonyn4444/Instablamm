@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Instablamm</title>
+    <title>InstaBlam</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Custom CSS -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/css/stylish-portfolio.css" rel="stylesheet">
+
   </head>
 
   <body>
@@ -19,7 +23,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <div class="navbar-brand"><%= link_to "Instablamm", 
+      <div class="navbar-brand"><%= link_to "InstaBlam", 
       if current_user 
         user_posts_path(current_user) 
       else 
