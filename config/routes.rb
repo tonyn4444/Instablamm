@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
-	root 'users#new'
+	get '/homepage' => 'homepage#index'
+
+	root 'homepage#index'
 
 	resources :users do
-		resources :posts, only: [:index, :new, :create]
+		resources :posts, only: [:index, :new, :create, :show]
 	end
 
 	get '/login' => 'sessions#new'

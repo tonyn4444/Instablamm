@@ -19,13 +19,24 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <div class="navbar-brand"><%= link_to "Instablamm", '#' %></div>
+      <div class="navbar-brand"><%= link_to "Instablamm", 
+      if current_user 
+        user_posts_path(current_user) 
+      else 
+        login_path 
+      end%></div>
+
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><%= link_to "New Post", '#' %></li>
+        <li class="active"><%= link_to "Create Post", 
+        if current_user 
+          new_user_post_path(current_user)
+        else 
+          '/login'
+        end %></li>
         <li><%= link_to "Login", '/login' %></li>
           
       </ul>
@@ -40,7 +51,12 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Add a New Post", '#' %></li>
+            <li><%= link_to "Add a New Post", 
+            if current_user
+              new_user_post_path(current_user)
+            else 
+              '/login'
+            end %></li>
             <li><%= link_to "Login", '/login' %></li>
             <li><%= link_to "Logout", '/logout' %></li>
           </ul>
