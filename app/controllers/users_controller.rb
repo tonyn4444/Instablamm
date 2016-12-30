@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+	def index
+		@users = User.all 
+	end
+
 	def new
 	end
 
@@ -6,8 +10,10 @@ class UsersController < ApplicationController
 		user = User.new(user_params)
 		if user.save
 			session[:user_id] = user.id 
+			flash[:success] = "Registration successful!"
 			redirect_to '/'
 		else
+			flash[:error] = "Invalid input!"
 			redirect_to 'signup'
 		end
 	end
